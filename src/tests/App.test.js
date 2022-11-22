@@ -4,7 +4,6 @@ import { act } from 'react-dom/test-utils';
 import App from '../App';
 import renderWithRouter from '../renderWithRouter';
 
-
 describe('Teste o componente <App.js />', () => {
   test('Testes requisito 1', () => {
     const { history } = renderWithRouter(<App />);
