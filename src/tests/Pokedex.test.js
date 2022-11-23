@@ -1,11 +1,11 @@
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from '../App';
 import renderWithRouter from '../renderWithRouter';
 
 describe('Teste o componente <Pokedex.js />', () => {
   test('Teste requisito 5.1', async () => {
-    const { history } = renderWithRouter(<App />);
+    renderWithRouter(<App />);
     const head = await screen.findByRole('heading', {
       name: /encountered pokémon/i,
       level: 2,
@@ -62,12 +62,12 @@ describe('Teste o componente <Pokedex.js />', () => {
     expect(btnAll).toBeInTheDocument();
   });
   test('Teste 5.3', async () => {
-    const { history } = renderWithRouter(<App />);
+    renderWithRouter(<App />);
     const pokebyId = await screen.getAllByTestId('pokemon-name');
     expect((pokebyId).length).toBe(1);
   });
   test('test 5.4', async () => {
-    const { history } = renderWithRouter(<App />);
+    renderWithRouter(<App />);
     const btnById = await screen.getAllByTestId('pokemon-type-button');
     const btnNext = screen.getByRole('button', {
       name: /próximo pokémon/i,
@@ -94,7 +94,7 @@ describe('Teste o componente <Pokedex.js />', () => {
     expect(typeBtns[0]).toBeInTheDocument();
   });
   test('Teste 5.5', async () => {
-    const { history } = renderWithRouter(<App />);
+    renderWithRouter(<App />);
     const btnAll = screen.getByRole('button', {
       name: /all/i,
     });
